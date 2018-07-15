@@ -1,8 +1,16 @@
 # i18n File Converter
 
-Python program that reads in an 18n.properties file and converts an i18n.properties file to a CSV file, preserving UTF-8 encoding and allows for comma-inclusion as part of the text.
+Python program that reads in an 18n.properties file and converts it to a CSV file whilst preserving UTF-8 character encoding and allowing for comma-inclusion as part of the text.
 
-To ensure that special charaters are correctly displayed inside Excel, with the correct UTF-8 encoding, do the following:
-* Open Excel.
-* Import the file using UTF-encoding.
-* Set commas as delimiters.
+</br>
+<ol>
+<p align="center">
+  <li>Open Excel and import the generated CSV file</li>
+  <img src="images/screenShot-01.png" width="350px"/>
+  <li>Specify the use of UTF-8 character encoding</li>
+  <img src="images/screenShot-02.png" width="350px"/>
+  <li>Specify commas as data delimiters</li>
+  <img src="images/screenShot-03.png" width="350px"/>
+  <li>Save the file "CSV UTF-8 (Comma delimited)(.csv)"</li>
+  </ol>
+</p>
