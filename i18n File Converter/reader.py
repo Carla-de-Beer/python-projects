@@ -10,26 +10,31 @@ import csv
 writeFile = open("i18n_en.csv", "w", newline="", encoding="utf-8")
 writer = csv.writer(writeFile)
 
-with open("sourceFiles/i18n_en.properties", "r", ) as propertiesFile:
-    for line in propertiesFile.readlines():
-        line = line.strip()  # removes the newline characters
-        parts = line.split("=")  # creates a (key, value) tuple
+try:
 
-        # Create a multidimensional list for csv insertion
-        myData = []
+    with open("sourceFiles/i18n_en.properties", "r", ) as propertiesFile:
+        for line in propertiesFile.readlines():
+            line = line.strip()  # removes the newline characters
+            parts = line.split("=")  # creates a (key, value) tuple
 
-        # Skip commented lines
-        if line and line[0] != "#":
-            # print(line)
+            # Create a multidimensional list for csv insertion
+            myData = []
 
-            outgoingList = []
-            outgoingList.append("<App name>")
-            outgoingList.append("en")
-            outgoingList.append(parts[0]) # key
-            outgoingList.append(parts[1]) # value
-            myData.append(outgoingList)
+            # Skip commented lines
+            if line and line[0] != "#":
+                # print(line)
 
-            print(outgoingList)
+                outgoingList = []
+                outgoingList.append("<App name>")
+                outgoingList.append("en")
+                outgoingList.append(parts[0]) # key
+                outgoingList.append(parts[1]) # value
+                myData.append(outgoingList)
 
-            writer = csv.writer(writeFile)
-            writer.writerows(myData)
+                print(outgoingList)
+
+                writer = csv.writer(writeFile)
+                writer.writerows(myData)
+
+except IOError:
+   print("Error: can\'t find file or read data")
