@@ -1,6 +1,6 @@
 # i18n File Converter
 
-Python program that reads in an 18n.properties file and converts it to a CSV file whilst preserving UTF-8 character encoding and allowing for comma-inclusion as part of the text.
+Python program that reads in an i18n.properties file and converts it to a CSV file whilst preserving UTF-8 character encoding and allowing for comma-inclusion as part of the text.
 
 </br>
 <ol>
