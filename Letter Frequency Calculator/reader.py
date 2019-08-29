@@ -1,30 +1,32 @@
-# Python program that reads in a set of text files and calculates the frequency occurrences of each alphabet letter,
-# where the alphabet letters are listed in descending order of frequency.
-# The results are plotted on a plot.ly graph.
-# Carla de Beer
-# Created: February 2018
+"""
+Carla de Beer
+Created: February 2018
+Python program that reads in a set of text files and
+calculates the frequency occurrences of each alphabet letter,
+where the alphabet letters are listed in descending order of frequency.
+The results are plotted on a plot.ly graph.
+"""
 
-#!/usr/bin/python
-
+import os
 import plotly
 import plotly.plotly as py
 import plotly.graph_objs as go
-import os
 
+# NB: Add relevant credentials here in order to display the graph
 plotly.tools.set_credentials_file(username='ENTER_USERNAME_HERE', api_key='ENTER_TOKEN_HERE')
 
 ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
-count_array = []
-plot_data = []
+COUNT_ARRAY = []
+PLOT_DATA = []
 
 
-# ----------------------------------------------------------------------------------------------------
+# ------------------------------------------------------
 # Helper methods
-# ----------------------------------------------------------------------------------------------------
+# ------------------------------------------------------
 
 def init_arrays():
-    for c in ALPHABET:
-        count_array.append({'letter': c, 'count': 0})
+    for char in ALPHABET:
+        COUNT_ARRAY.append({'letter': char, 'count': 0})
 
     # Get the filenames from the 'Texts' folder
     file_names = os.listdir('Texts')
@@ -43,30 +45,32 @@ def init_arrays():
 
     return file_names, text_position
 
-def calculate(file, array):
-    for line in file:
+
+def calculate(input_file, array):
+    for line in input_file:
         line = line.lower()
 
         # Count the number of occurrences of each alphabet letter, for each incoming line
-        c = ''
+        char = ''
         for index in range(len(array)):
             for key in array[index]:
                 if key == 'letter':
-                    c = key
+                    char = key
                 if key == 'count':
-                    array[index][key] += line.count(array[index][c])
+                    array[index][key] += line.count(array[index][char])
 
-    sum = 0
+    sum_value = 0
     for index in range(len(array)):
         for key in array[index]:
             if key == 'count':
-                sum += array[index][key]
+                sum_value += array[index][key]
 
     # Sort the array by count value, descending
-    return sorted(array, key=lambda k: k['count'], reverse=True), sum
+    return sorted(array, key=lambda k: k['count'], reverse=True), sum_value
 
-def print_results(fileName, array, sum):
-    print("Letter frequencies for '{0}':".format(fileName))
+
+def print_results(file_name, array, sum_value):
+    print("Letter frequencies for '{0}':".format(file_name))
 
     c = ''
     for index in range(len(array)):
@@ -74,20 +78,21 @@ def print_results(fileName, array, sum):
             if key == 'letter':
                 c = key
             if key == 'count':
-                percentage = round(array[index][key]/sum * 100, 3)
-                print('{0}: {1} occurrences => {2}%'.format(array[index][c], array[index][key], percentage))
+                percentage = round(array[index][key] / sum_value * 100, 3)
+                print('{0}: {1} occurrences => {2}%'.format(array[index][c],
+                                                            array[index][key], percentage))
     print('\n')
 
 
-def get_plot_results(array, file_names, text_position, sum):
+def get_plot_results(array, sum_value):
     c_array = []
     y_array = []
     for index in range(len(array)):
-        for key in count_array[index]:
+        for key in COUNT_ARRAY[index]:
             if key == 'letter':
                 c_array.append(array[index][key])
             if key == 'count':
-                percentage = round(array[index][key] / sum * 100, 3)
+                percentage = round(array[index][key] / sum_value * 100, 3)
                 y_array.append(percentage)
 
     x_array = []
@@ -99,8 +104,8 @@ def get_plot_results(array, file_names, text_position, sum):
             y=y_array,
             mode='lines+markers+text',
             text=c_array,
-            name=f,
-            textposition=text_position[file_names.index(f)],
+            name=i,
+            textposition='middle center',
             marker=dict(
                 opacity=0.4,
                 size=y_array,
@@ -110,38 +115,37 @@ def get_plot_results(array, file_names, text_position, sum):
             )
         )
 
+    PLOT_DATA.append(data)
+    return PLOT_DATA
 
-    plot_data.append(data)
-    return plot_data
 
 def plot_results(plot_data):
     layout = go.Layout(title='Letter frequencies (%)', showlegend=True)
     fig = go.Figure(data=plot_data, layout=layout)
-    plot_url = py.plot(fig, filename='Letter frequencies')
+    py.plot(fig, filename='Letter frequencies')
 
 
-# ----------------------------------------------------------------------------------------------------
+# ------------------------------------------------------
 # Read file and parse text
-# ----------------------------------------------------------------------------------------------------
+# ------------------------------------------------------
 
-file_names, text_position = init_arrays()
+FILE_NAMES, TEXT_POSITION = init_arrays()
 
 try:
 
-    for f in file_names:
-
+    for f in FILE_NAMES:
         path = 'Texts/' + f
         file = open(path, 'r')
 
-        count_array, sum = calculate(file, count_array)
+        COUNT_ARRAY, SUM_TOTAL = calculate(file, COUNT_ARRAY)
 
-        print_results(f, count_array, sum)
+        print_results(f, COUNT_ARRAY, SUM_TOTAL)
 
-        plot = get_plot_results(count_array, file_names, text_position, sum)
+        plot = get_plot_results(COUNT_ARRAY, SUM_TOTAL)
 
         file.close()
 
-    plot_results(plot_data)
+    plot_results(PLOT_DATA)
 
 except IOError as e:
     print('I/O error({0}): {1}'.format(e.errno, e.strerror))
