@@ -1,4 +1,4 @@
-# Simple Book List API with Flask
+# Simple Book List API
 
 A simple book list API created with Python in Flask. The list of book titles shown are locally stored and sourced from: https://thegreatestbooks.org.
 
