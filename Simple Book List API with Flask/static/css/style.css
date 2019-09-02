@@ -1,0 +1,29 @@
+body {
+    margin: 40px;
+    padding: 0;
+    overflow: hidden;
+}
+
+h1, h2 {
+    color: royalblue;
+    text-align: center;
+    font-family: "DejaVu Sans", Arial, Helvetica, sans-serif;
+}
+
+p {
+    top: 0;
+    margin: 10px;
+    text-align: center;
+    color: lightseagreen;
+    font-family: "DejaVu Sans", Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.link {
+    top: 0;
+    margin: 10px;
+    text-align: center;
+    color: indianred;
+    font-family: "DejaVu Sans", Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}

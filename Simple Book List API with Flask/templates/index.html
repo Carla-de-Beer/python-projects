@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Greatest Books</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+
+<h1>Welcome to this list of great books!</h1>
+<h2>Add, edit or delete books from this list through the<a class="link" href="http://localhost:5000/api/v1.0/books">API</a>to suit your taste</h2>
+
+</br>
+</br>
+{%for book in books%}
+<p>{{book.title}}</p>
+{%endfor%}
+
+</body>
+</html>
