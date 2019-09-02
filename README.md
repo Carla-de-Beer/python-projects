@@ -5,6 +5,8 @@ This repository contains a number of Python 3.7.
 
 ## List of projects
 
+The following is a list of the projects included in this repository:
+
 ## [Python Scripts](https://github.com/Carla-de-Beer/Python/tree/master/Python%20Scripts)
   Various Python scripts and projects:
   * [CSV File Converter:](https://github.com/Carla-de-Beer/Python/tree/master/Python%20Scripts/CSV%20File%20Converter) Converts a CSV file to a CSV file whilst preserving UTF-8 encoding.
