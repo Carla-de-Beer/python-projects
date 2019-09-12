@@ -13,6 +13,6 @@ The following is a list of the projects included in this repository:
   * [i18n File Converter:](https://github.com/Carla-de-Beer/Python/tree/master/Python%20Scripts/i18n%20File%20Converter) Converts an i18n.properties file to a CSV file whilst preserving UTF-8 character encoding and allowing for comma-inclusion as part of the text.
   * [Letter Frequency Calculator:](https://github.com/Carla-de-Beer/Python/tree/master/Python%20Scripts/Letter%20Frequency%20Calculator) Reads in a set of text files and calculates the frequency occurrences of each alphabet letter.
 
-## [Flask](https://github.com/Carla-de-Beer/Python/tree/master/Flask)
+## [Flask Projects](https://github.com/Carla-de-Beer/Python/tree/master/Flask%20Projects)
   Various Flask projects:
-  * [Simple Book List API:](https://github.com/Carla-de-Beer/Python/tree/master/Flask/Simple%20Book%20List%20API) Simple book list API created with Python in Flask.
+  * [Simple Book List API:](https://github.com/Carla-de-Beer/Python/tree/master/Flask%20Projects/Simple%20Book%20List%20API) Simple book list API created with Python in Flask.
