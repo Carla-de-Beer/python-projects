@@ -28,8 +28,8 @@ def init_arrays():
     for char in ALPHABET:
         COUNT_ARRAY.append({'letter': char, 'count': 0})
 
-    # Get the filenames from the 'Texts' folder
-    file_names = os.listdir('Texts')
+    # Get the filenames from the 'texts' folder
+    file_names = os.listdir('texts')
     file_names = [x for x in file_names if ".txt" in x]
 
     text_position = []
@@ -134,7 +134,7 @@ FILE_NAMES, TEXT_POSITION = init_arrays()
 try:
 
     for f in FILE_NAMES:
-        path = 'Texts/' + f
+        path = 'texts/' + f
         file = open(path, 'r')
 
         COUNT_ARRAY, SUM_TOTAL = calculate(file, COUNT_ARRAY)
