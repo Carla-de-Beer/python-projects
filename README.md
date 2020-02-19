@@ -11,7 +11,8 @@ The following is a list of the projects included in this repository:
   Various Flask projects:
   * [Simple Book List API:](https://github.com/Carla-de-Beer/python-projects/tree/master/flask-projects/simple-book-list-api) Simple book list API created with Python in Flask.
 
-## [NumPy Basics](https://github.com/Carla-de-Beer/python-projects/tree/master/numpy-basics) NumPy basic exercises written with Jupyter Notebook
+## [NumPy Basics](https://github.com/Carla-de-Beer/python-projects/tree/master/numpy-basics) 
+  NumPy basic exercises written with Jupyter Notebook
 
 ## [Python Scripts](https://github.com/Carla-de-Beer/Python-Projects/tree/master/python-scripts)
   Various Python scripts and projects:
