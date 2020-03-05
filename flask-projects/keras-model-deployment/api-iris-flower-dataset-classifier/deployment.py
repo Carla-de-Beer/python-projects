@@ -12,8 +12,8 @@ import numpy as np
 from tensorflow.keras.models import load_model
 import joblib
 
-flower_model = load_model('final_iris_model.h5')
-flower_scaler = joblib.load('iris_scaler.pkl')
+flower_model = load_model('model/final_iris_model.h5')
+flower_scaler = joblib.load('model/iris_scaler.pkl')
 
 
 def return_prediction(model, scaler, sample_json):
@@ -23,9 +23,11 @@ def return_prediction(model, scaler, sample_json):
     petal_width = sample_json['petal_width']
 
     flower = [[sepal_length, sepal_width, petal_length, petal_width]]
-    flower = scaler.transform(flower)
 
     classes = np.array(['setosa', 'versicolor', 'virginica'])
+
+    flower = scaler.transform(flower)
+
     class_index = model.predict_classes(flower)
 
     return classes[class_index[0]]
