@@ -1,6 +1,6 @@
 # Carla de Beer
 # Created: March 2020
-# A simple Flask web frontend project deploying a Keras-based model based on the iris flower multivariate data, 
+# A Flask API project deploying a Keras-based model based on the iris flower multivariate data, 
 # to predict an iris category based on the input parameters provided.
 # Based on the Udemy course: Complete TensorFlow 2 and Keras Deep Learning Bootcamp:
 # https://www.udemy.com/course/complete-tensorflow-2-and-keras-deep-learning-bootcamp
@@ -8,12 +8,12 @@
 # https://archive.ics.uci.edu/ml/datasets/Iris
 
 from flask import Flask, request, jsonify
-import tensorflow as tf
+import numpy as np
 from tensorflow.keras.models import load_model
 import joblib
 
-flower_model = load_model('model/final_iris_model.h5')
-flower_scaler = joblib.load('model/iris_scaler.pkl')
+flower_model = load_model('final_iris_model.h5')
+flower_scaler = joblib.load('iris_scaler.pkl')
 
 
 def return_prediction(model, scaler, sample_json):
@@ -34,14 +34,14 @@ def return_prediction(model, scaler, sample_json):
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route("/")
 def index():
-    return '<h1>Flower Predictor App is Running</h1>'
+    return '<h1>Flask app is running</h1>'
 
 
-@app.route('/api/flower', request=['POST'])
+@app.route("/api/flower", methods=["POST"])
 def flower_prediction():
-    return jsonify(return_prediction(model, scaler, request.json))
+    return jsonify(return_prediction(flower_model, flower_scaler, request.json))
 
 
 if __name__ == '__main__':
