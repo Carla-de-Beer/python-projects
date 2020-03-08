@@ -23,11 +23,9 @@ def return_prediction(model, scaler, sample_json):
     petal_width = sample_json['petal_width']
 
     flower = [[sepal_length, sepal_width, petal_length, petal_width]]
-
-    classes = np.array(['setosa', 'versicolor', 'virginica'])
-
     flower = scaler.transform(flower)
 
+    classes = np.array(['setosa', 'versicolor', 'virginica'])
     class_index = model.predict_classes(flower)
 
     return classes[class_index[0]]
