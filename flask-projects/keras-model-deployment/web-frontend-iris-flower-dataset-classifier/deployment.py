@@ -11,26 +11,26 @@ from flask import Flask, render_template, session, url_for, redirect
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from tensorflow.keras.models import load_model
+import numpy as np
 import joblib
 
 flower_model = load_model('model/final_iris_model.h5')
 flower_scaler = joblib.load('model/iris_scaler.pkl')
 
+
 def return_prediction(model, scaler, sample_json):
     # For larger data features, you should probably write a for loop
     # That builds out this array for you
 
-    s_len = sample_json['sepal_length']
-    s_wid = sample_json['sepal_width']
-    p_len = sample_json['petal_length']
-    p_wid = sample_json['petal_width']
+    sepal_length = sample_json['sepal_length']
+    sepal_width = sample_json['sepal_width']
+    petal_length = sample_json['petal_length']
+    petal_width = sample_json['petal_width']
 
-    flower = [[s_len, s_wid, p_len, p_wid]]
-
+    flower = [[sepal_length, sepal_width, petal_length, petal_width]]
     flower = scaler.transform(flower)
 
     classes = np.array(['setosa', 'versicolor', 'virginica'])
-
     class_ind = model.predict_classes(flower)
 
     return classes[class_ind][0]
@@ -41,37 +41,33 @@ app.config['SECRET_KEY'] = 'mysecretkey'
 
 
 class FlowerForm(FlaskForm):
-    sep_len = StringField("Sepal Length")
-    sep_wid = StringField("Sepal Width")
-    pet_len = StringField("Petal Length")
-    pet_wid = StringField("Petal Width")
+    sepal_length = StringField('Sepal Length')
+    sepal_width = StringField('Sepal Width')
+    petal_length = StringField('Petal Length')
+    petal_width = StringField('Petal Width')
 
-    submit = SubmitField("Analyze")
+    submit = SubmitField('Analyse')
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
     form = FlowerForm()
 
     if form.validate_on_submit():
-        session['sep_len'] = form.sep_len.data
-        session['sep_wid'] = form.sep_wid.data
-        session['pet_len'] = form.pet_len.data
-        session['pet_wid'] = form.pet_wid.data
+        session['sepal_length'] = form.sepal_length.data
+        session['sepal_width'] = form.sepal_width.data
+        session['petal_length'] = form.petal_length.data
+        session['petal_width'] = form.petal_width.data
 
-        return redirect(url_for("prediction"))
+        return redirect(url_for('prediction'))
 
     return render_template('home.html', form=form)
 
 
 @app.route('/prediction')
 def prediction():
-    content = {}
-
-    content['sepal_length'] = float(session['sep_len'])
-    content['sepal_width'] = float(session['sep_wid'])
-    content['petal_length'] = float(session['pet_len'])
-    content['petal_width'] = float(session['pet_wid'])
+    content = {'sepal_length': float(session['sepal_length']), 'sepal_width': float(session['sepal_width']),
+               'petal_length': float(session['petal_length']), 'petal_width': float(session['petal_width'])}
 
     results = return_prediction(flower_model, flower_scaler, content)
 
