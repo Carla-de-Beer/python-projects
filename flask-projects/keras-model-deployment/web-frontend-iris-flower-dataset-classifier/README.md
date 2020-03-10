@@ -26,7 +26,7 @@ Run the server. The API can be tested with the following CLI curl CRUD command:
 ### Screen Views
 <br/>
 <p align="center">
-  <img src="images/screenShot-01.png" width="500px"/>
-  <img src="images/screenShot-02.png" width="500px"/>
-  <img src="images/screenShot-03.png" width="500px"/>
+  <img src="images/screenShot-01.png" width="650px"/>
+  <img src="images/screenShot-02.png" width="650px"/>
+  <img src="images/screenShot-03.png" width="650px"/>
 </p>
