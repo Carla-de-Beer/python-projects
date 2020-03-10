@@ -1,8 +1,29 @@
-<h1>Thank You. Here is the Information You Gave:</h1>
-<ul>
-    <li>Sepal Length: {{ session['sepal_length'] }}</li>
-    <li>Sepal Width: {{ session['sepal_width'] }}</li>
-    <li>Petal Length: {{ session['petal_length'] }}</li>
-    <li>Petal Width: {{ session['petal_width'] }}</li>
-</ul>
-<h2>Your Predicted Flower Class is: {{ results }}</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/style.css") }}">
+</head>
+<div class="placement">
+    <h1 class="main-header">Iris Dataset Classifier</h1>
+    <h2 class="sub-header">Information Provided</h2>
+    <table class="table-style">
+        <tr>
+            <th>Sepal Length:</th>
+            <th class="field-box"> {{ session['sepal_length'] }} </th>
+        </tr>
+        <tr>
+            <th>Sepal Width:</th>
+            <th class="field-box"> {{ session['sepal_width'] }} </th>
+        </tr>
+        <tr>
+            <th>Petal Length:</th>
+            <th class="field-box"> {{ session['petal_length'] }} </th>
+        </tr>
+        <tr>
+            <th>Petal Width:</th>
+            <th class="field-box"> {{ session['petal_width'] }} </th>
+        </tr>
+    </table>
+    <h3 class="result">Your Predicted Flower Class is: <span class="result-value">{{ results }}</span></h3>
+</div>
+</html>

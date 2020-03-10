@@ -30,7 +30,7 @@ def return_prediction(model, scaler, sample_json):
     flower = [[sepal_length, sepal_width, petal_length, petal_width]]
     flower = scaler.transform(flower)
 
-    classes = np.array(['setosa', 'versicolor', 'virginica'])
+    classes = np.array(['Setosa', 'Versicolor', 'Virginica'])
     class_ind = model.predict_classes(flower)
 
     return classes[class_ind][0]

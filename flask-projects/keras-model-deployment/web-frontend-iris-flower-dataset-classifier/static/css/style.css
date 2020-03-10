@@ -1,0 +1,53 @@
+th {
+    color: #777;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+.placement {
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.main-header {
+    font-family: Arial, Helvetica, sans-serif;
+    color: royalblue;
+}
+
+.sub-header {
+    font-family: Arial, Helvetica, sans-serif;
+    color: cornflowerblue;
+}
+
+.result {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #777;
+}
+
+.result-value {
+    color: cornflowerblue;
+}
+
+.table-style {
+    margin-top: 40px;
+}
+
+.field-box {
+    padding-left: 20px;
+}
+
+.button {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #e7e7e7;
+    color: #777;
+    font-size: 16px;
+    border-radius: 2px;
+    padding: 10px 20px 10px 20px;
+    border: none;
+    margin-top: 20px;
+}
+
+.button:hover {
+    background-color: cornflowerblue;
+    color: white;
+}
