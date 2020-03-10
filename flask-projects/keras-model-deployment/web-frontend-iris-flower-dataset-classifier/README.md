@@ -1,17 +1,26 @@
 # Web Frontend Iris Flower Dataset Classifier
 
-This project exposes an iris flower dataset ANN model as a simple web frontend. The model was built with TensorFlow/Keras and is deployed in Flask. Run the server, open a browser window and enter the URL `http://localhost:5000/api/flower` and enter the details for the following values for the following fields:
+The Iris Flower Dataset is a multivariate dataset developed by the British statistician and biologist Ronald Fisher as part of his academic paper `The use of multiple measurements in taxonomic problems` as an example of linear discriminant analysis. It consists of flower dimensions for three types of irises:
+
+* *Iris Setosa*
+* *Iris Versicolor*
+* *Iris Virginica*
+
+<figure>
+  <img src="images/iris-machinelearning.png" alt="Iris Photos" style="width:650px">
+  <figcaption>Image: http://www.lac.inpe.br/~rafael.santos/Docs/CAP394/WholeStory-Iris.html
+  </figcaption>
+</figure>
+<br/>
+
+This project exposes a trained iris flower dataset ANN model as a simple web frontend. The model was built with TensorFlow/Keras and is deployed in Flask. Run the server, open a browser window and enter the URL `http://localhost:5000/api/flower` and enter the details for the following values for the following fields:
 
 * `Sepal Length`
 * `Sepal Width`
 * `Petal Length`
 * `Petal Width`
 
-The API then responds with the iris classification, which is either:
-
-* *Iris Setosa*
-* *Iris Versicolor*
-* *Iris Virginica*
+The API then responds with the most relevant iris classification.
 
 ### Resources
 The project uses the famous iris flower dataset obtained from the UCI Machine Learning Repository: https://archive.ics.uci.edu/ml/datasets/Iris
