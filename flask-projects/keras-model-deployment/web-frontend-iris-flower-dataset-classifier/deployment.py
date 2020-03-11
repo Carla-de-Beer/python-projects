@@ -1,7 +1,7 @@
 # Carla de Beer
 # Created: March 2020
 # A simple Flask web frontend project deploying a Keras-based model based on the iris flower multivariate data,
-# to predict an iris category based on the input parameters provided.
+# in order to predict an iris category based on the input parameters provided.
 # Based on the Udemy course: Complete TensorFlow 2 and Keras Deep Learning Bootcamp:
 # https://www.udemy.com/course/complete-tensorflow-2-and-keras-deep-learning-bootcamp
 # The project uses the iris flower dataset obtained from the UCI Machine Learning Repository:
