@@ -1,4 +1,4 @@
-# File Reader: Letter Frequency Counter
+# Letter Frequency Calculator
 
 Python program that reads in a set of text files and calculates the frequency occurrences of each alphabet letter, where the alphabet letters are listed in descending order of frequency.
 
