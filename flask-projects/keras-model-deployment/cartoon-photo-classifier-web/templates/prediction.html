@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction</title>
+</head>
+<body>
+
+<img src="{{ results.filename }}" alt="input image" style="width:350px;">
+
+<h3 class="result">Your predicted image is a: <span class="result-value">{{ results.class }}</span></h3>
+<h3 class="result">Degree of certainty: <span class="result-value">{{ results.degree }}%</span></h3>
+
+</body>
+</html>
