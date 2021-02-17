@@ -5,25 +5,27 @@ from flask_wtf.file import FileField, FileRequired
 from werkzeug.utils import secure_filename
 
 import os
-import shutil
+import glob
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 
+PATH_UNSEEN = 'static/unseen/'
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecretkey'
-app.config['UPLOAD_FOLDER'] = app.root_path + '/static/unseen/'
+app.config['UPLOAD_FOLDER'] = app.root_path + PATH_UNSEEN
 
 
 class UploadForm(FlaskForm):
     upload = FileField('image', validators=[
         FileRequired(),
-        FileAllowed(['jpg', 'jpeg', 'png'], 'Images only!')
+        FileAllowed(['jpg', 'jpeg', 'png', 'JPG', 'JPEG', 'PNG'], 'Images only!')
     ])
 
 
 def get_prediction():
-    img = image.load_img(app.root_path + '/static/unseen/' + session['filename'], target_size=(256, 256))
+    img = image.load_img(app.root_path + '/' + PATH_UNSEEN + session['filename'], target_size=(256, 256))
 
     my_img_array = image.img_to_array(img)
     my_img_array = my_img_array / 255
@@ -37,13 +39,12 @@ def get_prediction():
     if classes[0][0] < 0.5:
         result = 'CARTOON'
         degree = round(100 - classes[0][0] * 100, 4)
-        print(': CARTOON')
-        print(f"Degree of certainty: {degree}%")
     elif classes[0][0] >= 0.5:
         result = 'PHOTO'
         degree = round(classes[0][0] * 100, 4)
-        print(': PHOTO')
-        print(f"Degree of certainty: {degree}%")
+
+    print(': ' + result)
+    print(f"Degree of certainty: {degree}%")
 
     return result, degree
 
@@ -52,14 +53,16 @@ def get_prediction():
 def upload():
     form = UploadForm()
 
-    # shutil.rmtree(app.root_path + '/static/unseen/')
+    files = glob.glob(app.root_path + '/' + PATH_UNSEEN + '/*')
+    for f in files:
+        os.remove(f)
 
     if form.validate_on_submit():
         filename = secure_filename(form.upload.data.filename)
         session['filename'] = filename
 
         f = form.upload.data
-        f.save(os.path.join(app.root_path, 'static/unseen', filename))
+        f.save(os.path.join(app.root_path, PATH_UNSEEN, filename))
 
         return redirect(url_for('prediction'))
 
@@ -70,7 +73,7 @@ def upload():
 def prediction():
     [result, degree] = get_prediction()
 
-    filename = 'static/unseen/' + session['filename']
+    filename = PATH_UNSEEN + session['filename']
     results = {'class': result, 'degree': degree, 'filename': filename}
 
     return render_template('prediction.html', results=results)

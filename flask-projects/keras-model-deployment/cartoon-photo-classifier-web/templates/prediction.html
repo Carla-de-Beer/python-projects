@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
-<img src="{{ results.filename }}" alt="input image" style="width:350px;">
-
-<h3 class="result">Your predicted image is a: <span class="result-value">{{ results.class }}</span></h3>
-<h3 class="result">Degree of certainty: <span class="result-value">{{ results.degree }}%</span></h3>
+<div class="container">
+    <img src="{{ results.filename }}" alt="input image" style="width:350px;">
+    <h3 class="result">Your image is a: <span class="result-value">{{ results.class }}</span></h3>
+    <h4 class="result">Degree of certainty: <span class="result-value">{{ results.degree }}%</span></h4>
+</div>
 
 </body>
 </html>
