@@ -24,6 +24,10 @@ class UploadForm(FlaskForm):
     ])
 
 
+def navigate():
+    return render_template('index.html')
+
+
 def get_prediction():
     img = image.load_img(app.root_path + '/' + PATH_UNSEEN + session['filename'], target_size=(256, 256))
 
@@ -43,8 +47,8 @@ def get_prediction():
         result = 'PHOTO'
         degree = round(classes[0][0] * 100, 4)
 
-    print(': ' + result)
-    print(f"Degree of certainty: {degree}%")
+    app.logger.info(': ' + result)
+    app.logger.info(f"Degree of certainty: {degree}%")
 
     return result, degree
 

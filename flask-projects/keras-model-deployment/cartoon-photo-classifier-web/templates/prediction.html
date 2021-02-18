@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <title>Prediction</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
 <div class="container">
     <img src="{{ results.filename }}" alt="input image" style="width:350px;">
-    <h3 class="result">Your image is a: <span class="result-value">{{ results.class }}</span></h3>
-    <h4 class="result">Degree of certainty: <span class="result-value">{{ results.degree }}%</span></h4>
+    <br/><br/>
+    <h4 class="result">Your image is a: <span class="result-value">{{ results.class }}</span></h4>
+    <h5 class="result">Degree of certainty: <span class="result-value">{{ results.degree }}%</span></h5>
+    <br/><br/>
+    <form action="/" method="post">
+        <button class="btn btn-primary" type="submit" value="Return">Return</button>
+    </form>
 </div>
 
 </body>
