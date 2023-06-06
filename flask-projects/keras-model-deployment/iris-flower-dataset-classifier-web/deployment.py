@@ -6,6 +6,7 @@
 # https://www.udemy.com/course/complete-tensorflow-2-and-keras-deep-learning-bootcamp
 # The project uses the iris flower dataset obtained from the UCI Machine Learning Repository:
 # https://archive.ics.uci.edu/ml/datasets/Iris
+import os
 
 from flask import Flask, render_template, session, url_for, redirect
 from flask_wtf import FlaskForm
@@ -13,6 +14,7 @@ from wtforms import StringField, SubmitField
 from tensorflow.keras.models import load_model
 import numpy as np
 import joblib
+
 
 flower_model = load_model('model/final_iris_model.h5')
 flower_scaler = joblib.load('model/iris_scaler.pkl')

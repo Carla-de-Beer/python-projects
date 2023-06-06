@@ -1,0 +1,51 @@
+<App name>,en,search,Search (ŠŽ”¿ž)
+<App name>,en,logout,Logout
+<App name>,en,key,Key
+<App name>,en,systemID,System ID
+<App name>,en,endOfDataSet,End of data set
+<App name>,en,enter,Enter {0}
+<App name>,en,ID,ID Number
+<App name>,en,postalCode,Postal/ZIP Code
+<App name>,en,invalidEmail,Invalid email address.
+<App name>,en,dateInFuture,Date entered lies in the future.
+<App name>,en,wildcardSearch,Search by wildcards is not permitted.
+<App name>,en,wildcardSearchMsg,Search by wildcards is not permitted. Enter an exact value instead.
+<App name>,en,loadingData,Loading data ...
+<App name>,en,system,System
+<App name>,en,field,Field
+<App name>,en,annotation,Annotation
+<App name>,en,enterPasswordMsg,Enter password
+<App name>,en,reenterPasswordMsg,Confirm password:
+<App name>,en,passwordMustNotBeEmptyMsg,Password must not be empty. Min. 8 characters required.
+<App name>,en,passwordEmptyMsg,Password empty. Min. 8 characters required.
+<App name>,en,passwordTooShortMsg,Password too short. Min. 8 characters required.
+<App name>,en,mismatchingPasswordsMsg,Mismatching passwords.
+<App name>,en,noDataAvailable,No data available
+<App name>,en,submissionSuccessful,Submission Successful
+<App name>,en,submissionUnsuccessful,Submission Unsuccessful
+<App name>,en,ok,OK
+<App name>,en,companyName,Company Name
+<App name>,en,companyAddressAndPhone,Company Address and Phone
+<App name>,en,online,Online
+<App name>,en,firstAddressLine,First Address Line
+<App name>,en,secondAddressLine,Second Address Line
+<App name>,en,streetAddress,Street Address
+<App name>,en,city,City
+<App name>,en,country,Country
+<App name>,en,phone,Phone
+<App name>,en,email,Email
+<App name>,en,website,Website
+<App name>,en,logoFilePath,Logo Filepath
+<App name>,en,additionalMessage,Additional Message
+<App name>,en,additionalMessagePlaceholder,"Additional Message (optional, max. 255 characters)"
+<App name>,en,supplementaryInfo,Supplementary Information
+<App name>,en,supplementaryInfoPlaceholder,"Supplementary Information (optional, max. 10,000 characters)"
+<App name>,en,refresh,Refresh
+<App name>,en,cancel,Cancel
+<App name>,en,submit,Submit
+<App name>,en,logoutSuccessfulTitle,Logout Successful
+<App name>,en,logoutErrorTitle,Logout Error
+<App name>,en,logoutMsg,You have been successfully logged out.\nLog back in if you wish to continue searching the application.
+<App name>,en,notFoundTitle,Not Found
+<App name>,en,notFoundText,The requested resource was not found
+<App name>,en,backToOverview,Return to main search page
